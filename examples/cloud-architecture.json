@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "title": "Zero-Trust Cloud Modernization & Distributed Resilience",
+    "topic": "Enterprise Cloud Architecture Review",
+    "author": "Chief Cloud Architect",
+    "organization": "Enterprise Architecture Board",
+    "targetAudience": "VP of Infrastructure, Security Council, and Lead Architects",
+    "presentationType": "Architecture Review & Modernization Strategy",
+    "theme": "dark-technical",
+    "aspectRatio": "16:9",
+    "createdAt": "2026-10-21",
+    "version": "1.0.0",
+    "includeNotes": true
+  },
+  "slides": [
+    {
+      "id": "c-01",
+      "layout": "title",
+      "title": "Zero-Trust Cloud Modernization & Distributed Resilience",
+      "subtitle": "Migrating Legacy Monoliths to an Event-Driven, Multi-Region Service Mesh with Continuous Verification",
+      "presenter": "Office of the CTO",
+      "role": "Chief Cloud Architect",
+      "organization": "Global Platform Engineering",
+      "date": "Architecture Review Q4",
+      "eventOrContext": "EXECUTIVE ARCHITECTURE BOARD",
+      "tags": ["ZERO-TRUST", "MULTI-REGION", "SERVICE MESH", "KUBERNETES", "RESILIENCE"],
+      "notes": {
+        "talkingPoints": [
+          "Open the architecture review with the strategic mandate: moving beyond perimeter defense to identity-centric continuous verification.",
+          "Frame the discussion around cost efficiency, 99.999% availability, and automated failover."
+        ],
+        "transition": "Let's review the strategic agenda for this architecture review."
+      }
+    },
+    {
+      "id": "c-02",
+      "layout": "hero-stat",
+      "title": "The Strategic Imperative: Quantifying Resiliency & Security",
+      "kicker": "METRICS & IMPACT",
+      "subtitle": "Baseline measurements from our 2026 enterprise cloud readiness audit",
+      "mainStat": "99.999%",
+      "statLabel": "Target Annual Service Availability Across 3 Active Regions",
+      "contextSentence": "Zero-trust service mesh architecture with automated multi-region traffic routing eliminates single points of failure.",
+      "supportingMetrics": [
+        {
+          "stat": "< 30s",
+          "label": "RTO / Failover",
+          "detail": "Automated DNS steering and state synchronization enable regional evacuation within 30 seconds."
+        },
+        {
+          "stat": "100%",
+          "label": "mTLS Coverage",
+          "detail": "Every internal microservice hop encrypted and authenticated with SPIFFE/SPIRE workload identities."
+        },
+        {
+          "stat": "38%",
+          "label": "Cost Optimization",
+          "detail": "Graviton ARM instances and dynamic pod autoscaling yield immediate infrastructure savings."
+        }
+      ],
+      "notes": {
+        "talkingPoints": [
+          "Highlight the 30-second RTO achievement.",
+          "Emphasize that zero-trust is not just security; it standardizes telemetry and network efficiency across all clusters."
+        ]
+      }
+    },
+    {
+      "id": "c-03",
+      "layout": "architecture-diagram",
+      "title": "Multi-Region Distributed Mesh Architecture",
+      "kicker": "TARGET STATE TOPOLOGY",
+      "subtitle": "Global anycast edge routing down to isolated sovereign data planes",
+      "layers": [
+        {
+          "id": "edge",
+          "title": "Global Edge Tier",
+          "components": [
+            { "id": "e1", "title": "Anycast Edge DNS", "subtitle": "DDoS shielding & Geo-routing", "layer": "client", "badge": "CLOUDFLARE" },
+            { "id": "e2", "title": "WAF & Rate Limiting", "subtitle": "Threat intelligence filters", "layer": "client", "badge": "SECURITY" }
+          ]
+        },
+        {
+          "id": "mesh",
+          "title": "Zero-Trust Service Mesh",
+          "components": [
+            { "id": "m1", "title": "Envoy Data Plane", "subtitle": "mTLS termination & circuit breaking", "layer": "orchestration", "badge": "ENVOY" },
+            { "id": "m2", "title": "Istio Control Plane", "subtitle": "Dynamic traffic steering & auth", "layer": "orchestration", "badge": "ISTIO" },
+            { "id": "m3", "title": "SPIRE Identity Server", "subtitle": "Cryptographic workload IDs", "layer": "orchestration", "badge": "SPIFFE" }
+          ]
+        },
+        {
+          "id": "data",
+          "title": "Distributed Persistence",
+          "components": [
+            { "id": "d1", "title": "Distributed SQL", "subtitle": "CockroachDB multi-region cluster", "layer": "storage", "badge": "ACID" },
+            { "id": "d2", "title": "Kafka Event Backbone", "subtitle": "Geo-replicated audit event streams", "layer": "storage", "badge": "EVENTS" }
+          ]
+        }
+      ],
+      "keyInsight": "Identity is the perimeter: all inter-service communications require ephemeral cryptographic tokens validated at every network hop.",
+      "notes": {
+        "talkingPoints": [
+          "Walk through the edge, mesh, and persistence layers.",
+          "Show how CockroachDB and Kafka cross-region replication maintain data integrity even during total datacenter loss."
+        ]
+      }
+    },
+    {
+      "id": "c-04",
+      "layout": "key-takeaways",
+      "title": "Architecture Board Strategic Recommendations",
+      "kicker": "NEXT STEPS",
+      "subtitle": "Actionable rollout timeline for engineering directorates",
+      "takeaways": [
+        {
+          "title": "Phase 1: Identity & mTLS Baseline",
+          "action": "Deploy SPIRE identity agents to all 12 Kubernetes clusters by the end of Q1."
+        },
+        {
+          "title": "Phase 2: Active-Active Data Plane",
+          "action": "Complete CockroachDB multi-region pilot for core transaction services in Q2."
+        },
+        {
+          "title": "Phase 3: Chaos Engineering & Automated Failover",
+          "action": "Execute monthly simulated region blackout drills to validate the 30-second RTO guarantee."
+        }
+      ],
+      "callToAction": "Architecture Board vote scheduled for November 15: approval for Phase 1 capital allocation.",
+      "notes": {
+        "talkingPoints": [
+          "Summarize the 3 phased milestones.",
+          "Request formal sign-off from the Security Council and VP of Infrastructure."
+        ]
+      }
+    }
+  ]
+}

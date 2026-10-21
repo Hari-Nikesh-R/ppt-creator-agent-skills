@@ -1,0 +1,33 @@
+{
+  "name": "ppt-creator-agent-skill",
+  "version": "1.0.0",
+  "description": "Enterprise Prompt-to-PowerPoint Generator with Antigravity Agent Skill",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/cli.ts",
+    "generate": "tsx src/cli.ts",
+    "test": "node --import tsx --test tests/*.test.ts"
+  },
+  "keywords": [
+    "antigravity",
+    "powerpoint",
+    "pptx",
+    "ai-agent",
+    "presentation-generator"
+  ],
+  "author": "Antigravity Agent",
+  "license": "MIT",
+  "dependencies": {
+    "fast-xml-parser": "^5.3.3",
+    "jszip": "^3.10.1",
+    "pptxgenjs": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

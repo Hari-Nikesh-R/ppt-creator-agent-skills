@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PresentationModel",
+  "description": "Declarative JSON specification for presentation generation",
+  "type": "object",
+  "required": ["metadata", "slides"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["title", "topic", "author", "targetAudience", "presentationType", "theme", "aspectRatio"],
+      "properties": {
+        "title": { "type": "string" },
+        "topic": { "type": "string" },
+        "author": { "type": "string" },
+        "organization": { "type": "string" },
+        "targetAudience": { "type": "string" },
+        "presentationType": { "type": "string" },
+        "theme": {
+          "type": "string",
+          "enum": [
+            "tech-conference",
+            "dark-technical",
+            "minimal-corporate",
+            "premium-business",
+            "academic-research",
+            "product-roadmap",
+            "training-education"
+          ]
+        },
+        "aspectRatio": { "type": "string", "enum": ["16:9", "4:3"] },
+        "includeNotes": { "type": "boolean", "default": true }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "layout", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "layout": {
+            "type": "string",
+            "enum": [
+              "title",
+              "agenda",
+              "section-divider",
+              "text-image",
+              "hero-stat",
+              "column-comparison",
+              "timeline",
+              "process-flow",
+              "architecture-diagram",
+              "code-example",
+              "data-chart",
+              "case-study",
+              "pros-cons",
+              "key-takeaways",
+              "references-closing"
+            ]
+          },
+          "title": { "type": "string" },
+          "kicker": { "type": "string" },
+          "subtitle": { "type": "string" },
+          "notes": {
+            "type": "object",
+            "properties": {
+              "talkingPoints": { "type": "array", "items": { "type": "string" } },
+              "transition": { "type": "string" },
+              "estimatedSeconds": { "type": "number" }
+            }
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["label", "url"],
+              "properties": {
+                "label": { "type": "string" },
+                "url": { "type": "string" },
+                "notes": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
